@@ -20,11 +20,11 @@ if "student_details" in collections:
 else:
     print("collection don't exists")
 #CREATING DOCUMENT
-'''with open("students (1).json") as file:
+with open("students (1).json") as file:
 upload = json.load(file)
 document = collection.insert_many(upload)
 data = collection.find_one()
-print(data)'''
+print(data)
 print("Question : 1")
 output = collection.aggregate ([{'$group':
                                 {'_id': '$_id',
@@ -112,14 +112,14 @@ fail = collection.find({"$and": [{"scores": {"$elemMatch": {"type": "exam", "sco
 for i in fail:
     y = json.dumps(i)
     print(y)
-    '''with open('fail.json', 'a+') as f:
+    with open('fail.json', 'a+') as f:
             a = f.writelines(y + ',' + '\n')
 
 file = open("fail.json")
 upload = json.load(file)
 document = new_collection2.insert_many(upload)
 data = new_collection2.find_one()
-print(data)'''
+print(data)
 
 print("Question : 7 ")
 new_collection3 = Database['pass']
@@ -129,11 +129,11 @@ Pass = collection.find({"$and": [{"scores": {"$elemMatch": {"type": "exam", "sco
 for i in Pass:
     y = json.dumps(i)
     print(y)
-    '''with open('pass.json', 'a+') as f:
+    with open('pass.json', 'a+') as f:
                 a = f.writelines(y + ',' + '\n')
 
 file = open("pass.json")
 upload = json.load(file)
 document = new_collection3.insert_many(upload)
 data = new_collection3.find_one()
-print(data)'''
+print(data)
