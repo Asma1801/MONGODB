@@ -1,7 +1,5 @@
 import pymongo
 import json
-import pandas as pd
-from bson.objectid import ObjectId
 My_client = pymongo.MongoClient("mongodb://127.0.0.1:27017")
 #CREATING A DATABASE
 Database = My_client["student_db"]
@@ -73,13 +71,13 @@ a = collection.aggregate([{"$unwind":"$scores"},
 for i in a:
     y = json.dumps(i)
     print(y)
-    '''with open('new_file.json', 'a+') as f:
+    with open('new_file.json', 'a+') as f:
         a = f.writelines(y + ',' + '\n')
 file = open("new_file.json")
 upload = json.load(file)
 document = new_collection.insert_many(upload)
 data = new_collection.find_one()
-print(data)'''
+print(data)
 
 print("Question : 5")
 new_collection1 = Database['avg below  and scores above 40% ']
@@ -90,14 +88,14 @@ avg = new_collection.find({"avg":{"$lt": 40}})
 for i in below:
     x = json.dumps(i)
     print(x)
-    '''with open("new.json",'a+') as f:
-        b = f.writelines(x+','+'\n')'''
+    with open("new.json",'a+') as f:
+        b = f.writelines(x+','+'\n')
 print("%%%%%%%%%%%%%%")
 for j in avg:
     y = json.dumps(j)
     print(y)
-    '''with open('new.json', 'a+') as f:
-        a = f.writelines(y +','+'\n')'''
+    with open('new.json', 'a+') as f:
+        a = f.writelines(y +','+'\n')
 file = open("new.json")
 upload = json.load(file)
 document = new_collection1.insert_many(upload)
